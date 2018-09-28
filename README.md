@@ -27,7 +27,7 @@ TensorFlow Implementation of our paper ["Invertible Grayscale"](https://arxiv.or
 
 - Start training.
 ```python
-parser.add_argument('--mode', type=str, default='train', help='train, test')
+line294: parser.add_argument('--mode', type=str, default='train', help='train, test')
 ```
 ```bash
 python3 main.py
@@ -35,7 +35,7 @@ python3 main.py
 
 - Start evaluation. (pretrained model provided in the chechpoints folder)
 ```python
-parser.add_argument('--mode', type=str, default='test', help='train, test')
+line 294: parser.add_argument('--mode', type=str, default='test', help='train, test')
 ```
 ```bash
 python3 main.py 
