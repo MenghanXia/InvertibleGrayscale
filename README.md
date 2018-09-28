@@ -4,7 +4,7 @@ We run this code under [TensorFlow](https://www.tensorflow.org) 1.6 on Ubuntu16.
 
 ### Network Architecture
 
-TensorFlow Implementation of our paper ["Invertible Grayscale"](https://arxiv.org/abs/1609.04802) accepted to SIGGRAPH ASIA 2018.
+TensorFlow Implementation of our paper ["Invertible Grayscale"](https://menghanxia.github.io) accepted to SIGGRAPH ASIA 2018.
 
 <div align="center">
 	<img src="img/overview.jpg" width="90%">
@@ -16,7 +16,7 @@ TensorFlow Implementation of our paper ["Invertible Grayscale"](https://arxiv.or
 	<img src="img/examples.jpg" width="90%">
 </div>
 
-### Prepare Data
+### Preparation
 
 - You can use any color image set as the training data of the network, as it is a self-supervised learning scheme. 
 - The patch size is set to 256x256 in the `model.py` (you may change it to any other size as you like).
@@ -33,7 +33,7 @@ line294: parser.add_argument('--mode', type=str, default='train', help='train, t
 python3 main.py
 ```
 
-- Start evaluation. (pretrained model provided in the chechpoints folder)
+- Start evaluation. (pretrained model is provided in the chechpoints folder)
 ```python
 line 294: parser.add_argument('--mode', type=str, default='test', help='train, test')
 ```
