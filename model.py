@@ -182,7 +182,7 @@ def encode(inputs, out_channels, is_train=False, reuse=False):
 def decode(latents, out_channels, is_train=False, reuse=False):
     with tf.variable_scope("decode", reuse=reuse):
         # Decoder
-		n = Conv2d(latents, 64, filter_size=3, strides=1, padding='SAME', name='in/k3n64s1')
+        n = Conv2d(latents, 64, filter_size=3, strides=1, padding='SAME', name='in/k3n64s1')
         for i in range(8):
             nn = Conv2d(n, 64, filter_size=3, strides=1, act=tf.nn.relu, padding='SAME', name='dn64s1/c1/%s' % i)
             #nn = Batchnorm(nn, act=tf.nn.relu, is_train=is_train, name='dn64s1/b1/%s' % i)

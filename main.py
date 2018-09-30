@@ -31,7 +31,7 @@ def gen_list(data_dir):
 
 
 def train(train_list, val_list, debug_mode=True):
-    print('Running Encoder -Training!')
+    print('Running ColorEncoder -Training!')
     # create folders to save trained model and results
     graph_dir   = './graph'
     checkpt_dir = './checkpoints'
@@ -224,15 +224,14 @@ def train(train_list, val_list, debug_mode=True):
 
 
 def evaluate(test_list, checkpoint_dir):
-    print('Running Encoder -Evaluation!')
+    print('Running ColorEncoder -Evaluation!')
     save_dir_test = os.path.join("./output/results")
     exists_or_mkdir(save_dir_test)
-    exists_or_mkdir(cache_dir)
 	
 	# ------------- Running Options
     # if run encoder, 3 channel RGB image should be provided in the 'test_list'
 	# if run decoder, 1 channel invertible grayscale image should be provided in the 'test_list'
-    RUN_Encoder = True
+    RUN_Encoder = False
 
     # --------------------------------- set model ---------------------------------
     # data fetched within range: [-1,1]
@@ -248,7 +247,7 @@ def evaluate(test_list, checkpoint_dir):
     config = tf.ConfigProto()
     config.gpu_options.allow_growth = True
     #config.gpu_options.per_process_gpu_memory_fraction = 0.45
-
+    num = 10
     saver = tf.train.Saver()
     with tf.Session(config=config) as sess:
         coord = tf.train.Coordinator()
@@ -271,16 +270,15 @@ def evaluate(test_list, checkpoint_dir):
             print('%s evaluating: [%d - %d]' % (tm, cnt, cnt+batch_size))
             if RUN_Encoder:			# save the synthesized invertible grayscale
                 gray_imgs = sess.run(latent_imgs)
-                save_images_from_batch(latents, save_dir_test, cnt)
+                save_images_from_batch(gray_imgs, save_dir_test, cnt)
             else:							# save the restored color images
                 color_imgs = sess.run(restored_imgs)
-                save_images_from_batch(predicts, save_dir_test, cnt)
+                save_images_from_batch(color_imgs, save_dir_test, cnt)
 
             cnt += batch_size
             if cnt >= num:
                 coord.request_stop()
 
-            print("The mean quantization value: %.6f" % quanti_loss)
         # Wait for threads to finish.
         coord.join(threads)
         sess.close()
@@ -288,10 +286,10 @@ def evaluate(test_list, checkpoint_dir):
 
 
 if __name__ == "__main__":
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "3"
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mode', type=str, default='train', help='train, test')
+    parser.add_argument('--mode', type=str, default='test', help='train, test')
     args = parser.parse_args()
 
     if args.mode == 'train':
@@ -299,8 +297,8 @@ if __name__ == "__main__":
         val_list = gen_list('../Dataset/color_val/')
         train(train_list, val_list, debug_mode=True)
     elif args.mode == 'test':
-        test_list = gen_list('../Dataset/test/')
-        #test_list = gen_list('./latents/')
+        #test_list = gen_list('./InputColor/')
+        test_list = gen_list('./InvertibelGray/')
         checkpoint_dir = "checkpoints"
         evaluate(test_list, checkpoint_dir)
     else:
