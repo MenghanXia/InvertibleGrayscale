@@ -33,7 +33,7 @@ line294: parser.add_argument('--mode', type=str, default='train', help='train, t
 python3 main.py
 ```
 
-- Start evaluation. (available [pretrained model](https://drive.google.com/file/d/1wUKSzoYijU0dfyp9cl-9gTqyJY20OU2Y/view?usp=sharing))
+- Start evaluation. (access [pretrained model](https://drive.google.com/file/d/1wUKSzoYijU0dfyp9cl-9gTqyJY20OU2Y/view?usp=sharing))
 ```python
 line 294: parser.add_argument('--mode', type=str, default='test', help='train, test')
 ```
