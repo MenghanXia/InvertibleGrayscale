@@ -4,7 +4,7 @@ We run this code under [TensorFlow](https://www.tensorflow.org) 1.6 on Ubuntu16.
 
 ### Network Architecture
 
-TensorFlow Implementation of our paper ["Invertible Grayscale"](https://menghanxia.github.io) accepted to SIGGRAPH ASIA 2018.
+TensorFlow Implementation of our paper ["Invertible Grayscale"](http://menghanxia.github.io/papers/Invertible_Grayscale-SA2018.pdf) accepted to SIGGRAPH ASIA 2018.
 
 <div align="center">
 	<img src="img/overview.jpg" width="90%">
