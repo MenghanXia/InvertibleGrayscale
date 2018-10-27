@@ -42,4 +42,4 @@ python3 main.py
 ```
 
 ### Copyright and License
-You are granted with license (refer to LICENSE.txt) for both academic and commercial usages.
+You are granted with the [license](./LICENSE.txt) for both academic and commercial usages.
