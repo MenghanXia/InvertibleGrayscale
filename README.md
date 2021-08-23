@@ -44,7 +44,7 @@ python3 main.py
 ### Copyright and License
 You are granted with the [license](./LICENSE.txt) for both academic and commercial usages.
 
-### Citation
+## Citation
 If any part of our paper and code is helpful to your work, please generously cite with:
 ```
 @article{XiaLW18,
