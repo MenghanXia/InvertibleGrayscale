@@ -48,9 +48,7 @@ You are granted with the [license](./LICENSE.txt) for both academic and commerci
 If any part of our paper and code is helpful to your work, please generously cite with:
 ```
 @article{XiaLW18,
-  author    = {Menghan Xia and
-               Xueting Liu and
-               Tien{-}Tsin Wong},
+  author    = {Menghan Xia and Xueting Liu and Tien-Tsin Wong},
   title     = {Invertible grayscale},
   journal   = {{ACM} Trans. Graph.},
   volume    = {37},
