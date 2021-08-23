@@ -43,3 +43,19 @@ python3 main.py
 
 ### Copyright and License
 You are granted with the [license](./LICENSE.txt) for both academic and commercial usages.
+
+### Citation
+If any part of our paper and code is helpful to your work, please generously cite with:
+```
+@article{XiaLW18,
+  author    = {Menghan Xia and
+               Xueting Liu and
+               Tien{-}Tsin Wong},
+  title     = {Invertible grayscale},
+  journal   = {{ACM} Trans. Graph.},
+  volume    = {37},
+  number    = {6},
+  pages     = {246:1--246:10},
+  year      = {2018}
+}
+```
