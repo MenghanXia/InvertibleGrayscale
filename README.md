@@ -19,26 +19,20 @@ TensorFlow Implementation of our paper ["Invertible Grayscale"](http://menghanxi
 ### Preparation
 
 - You can use any color image set as the training data of the network, as it is a self-supervised learning scheme. 
-- The patch size is set to 256x256 in the `model.py` (you may change it to any other size as you like).
+- The patch size is set to 256x256 in the [`model.py`](model.py) (you may change it to any other size as you like).
 - Download the pretrained VGG19 model in [here](https://mega.nz/#!xZ8glS6J!MAnE91ND_WyfZ_8mvkuSa2YcA7q-1ehfSm-Q1fxOvvs).
 
 ### Run
-- Set your image folders and hyperparameters in `main.py`.
+- Set your image folders and hyperparameters in [`main.py`](./main.py).
 
 - Start training.
-```python
-line294: parser.add_argument('--mode', type=str, default='train', help='train, test')
-```
 ```bash
-python3 main.py
+python3 main.py --mode 'train'
 ```
 
 - Start evaluation. (access [pretrained model](https://drive.google.com/open?id=1wUKSzoYijU0dfyp9cl-9gTqyJY20OU2Y ))
-```python
-line 294: parser.add_argument('--mode', type=str, default='test', help='train, test')
-```
 ```bash
-python3 main.py 
+python3 main.py --mode 'test'
 ```
 
 ### Copyright and License
