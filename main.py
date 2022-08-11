@@ -223,12 +223,12 @@ def train(train_list, val_list, debug_mode=True):
     return None
 
 
-def evaluate(test_list, checkpoint_dir):
+def evaluate(test_list, checkpoint_dir, save_dir_test):
     print('Running ColorEncoder -Evaluation!')
-    save_dir_test = os.path.join("./output/results")
+    #save_dir_test = os.path.join("./output/results")
     exists_or_mkdir(save_dir_test)
 	
-	# ------------- Running Options
+    # ------------- Running Options
     # if run encoder, 3 channel RGB image should be provided in the 'test_list'
 	# if run decoder, 1 channel invertible grayscale image should be provided in the 'test_list'
     RUN_Encoder = False
@@ -290,16 +290,19 @@ if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', type=str, default='test', help='train, test')
+    parser.add_argument('--train_dir', type=str, default='../Dataset/VOC2012/', help='train, test')
+    parser.add_argument('--val_dir', type=str, default='../Dataset/color_val/', help='train, test')
+    parser.add_argument('--test_dir', type=str, default='./test', help='train, test')
+    parser.add_argument('--save_dir', type=str, default='./output', help='train, test')
     args = parser.parse_args()
 
     if args.mode == 'train':
-        train_list = gen_list('../Dataset/VOC2012/')
-        val_list = gen_list('../Dataset/color_val/')
+        train_list = gen_list(args.train_dir)
+        val_list = gen_list(args.val_dir)
         train(train_list, val_list, debug_mode=True)
     elif args.mode == 'test':
-        #test_list = gen_list('./InputColor/')
-        test_list = gen_list('./InvertibelGray/')
+        test_list = gen_list(args.test_dir)
         checkpoint_dir = "checkpoints"
-        evaluate(test_list, checkpoint_dir)
+        evaluate(test_list, checkpoint_dir, args.save_dir)
     else:
         raise Exception("Unknow --mode")
