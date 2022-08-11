@@ -18,7 +18,7 @@ TensorFlow Implementation of our paper ["Invertible Grayscale"](http://menghanxi
 
 ### Notice
 - You can use any color image set as the training data of the network, as it is a self-supervised learning scheme. 
-- The input image resolution is hard-coded in the Line:7~8 of [`model.py`](model.py), and you may change it to any other size (multiple of 4) as you like.
+- The input image resolution is hard-coded in the Line:7~8 of [`model.py`](model.py), and you need to modify it to match your data resolution (only multiple of 4 is supported).
 
 ### Train
 - Set the training hyperparameters in [`main.py`](./main.py).
@@ -28,7 +28,7 @@ TensorFlow Implementation of our paper ["Invertible Grayscale"](http://menghanxi
 python3 main.py --mode 'train' --train_dir 'your_train_dir' --val_dir 'your_val_dir'
 ```
 
-## Test
+### Test
 - Download the [pretrained model](https://drive.google.com/open?id=1wUKSzoYijU0dfyp9cl-9gTqyJY20OU2Y) and place it into the folder *'./checkpoints'*.
 - Start evaluation by specifying the testing images and the result saving directory.
 ```bash
