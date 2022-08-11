@@ -22,17 +22,19 @@ TensorFlow Implementation of our paper ["Invertible Grayscale"](http://menghanxi
 - The patch size is set to 256x256 in the [`model.py`](model.py) (you may change it to any other size as you like).
 - Download the pretrained VGG19 model in [here](https://mega.nz/#!xZ8glS6J!MAnE91ND_WyfZ_8mvkuSa2YcA7q-1ehfSm-Q1fxOvvs).
 
-### Run
-- Set your image folders and hyperparameters in [`main.py`](./main.py).
+### Train
+- Set the training hyperparameters in [`main.py`](./main.py).
 
-- Start training.
+- Start training by specifying the training dataset and validation dataset.
 ```bash
-python3 main.py --mode 'train'
+python3 main.py --mode 'train' --train_dir 'your_train_dir' --val_dir 'your_val_dir'
 ```
 
-- Start evaluation. (access [pretrained model](https://drive.google.com/open?id=1wUKSzoYijU0dfyp9cl-9gTqyJY20OU2Y ))
+## Test
+- Download the [pretrained model](https://drive.google.com/open?id=1wUKSzoYijU0dfyp9cl-9gTqyJY20OU2Y) and place it into the folder *'./checkpoints'*.
+- Start evaluation by specifying the testing images and the result saving directory.
 ```bash
-python3 main.py --mode 'test'
+python3 main.py --mode 'test' --test_dir 'your_test_dir' --save_dir './results'
 ```
 
 ### Copyright and License
